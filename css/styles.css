@@ -4,6 +4,14 @@
     font-weight: normal;
 }
 
+<<<<<<< HEAD
+#tarjetas {
+    display: grid;
+    gap: 50px 50px;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+}
+=======
 @font-face {
     font-family: 'Poppins';
     src: url(../fonts/Poppins-Regular.ttf) format('truetype');
@@ -166,3 +174,4 @@ color: #222222;
     padding: 0px 20px 20px 20px;
 }
 
+>>>>>>> 19976c8064c51d0097f9a028d2a5343607fb0475
