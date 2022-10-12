@@ -3,3 +3,10 @@
     src: url(../fonts/DMSans-Regular.ttf) format('truetype');
     font-weight: normal;
 }
+
+#tarjetas {
+    display: grid;
+    gap: 50px 50px;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+}
