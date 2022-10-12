@@ -17,8 +17,11 @@ class DocentesTarjeta extends HTMLElement {
 
 
         this.divStyle.innerHTML = `
-        .contenedor{            background: #FFFFFF;
+        .contenedor{            
+            background: #FFFFFF;
             border-radius: 15px;
+            float: left;
+            padding: 7.87px 27.67px;
         }
 
         .titulo{
@@ -72,6 +75,36 @@ class DocentesTarjeta extends HTMLElement {
             display: inline-block;
         }
 
+        #espacio{
+            display: inline-block;
+            width: 46.5px;
+        }
+
+        #nombre{
+            display: inline-block;
+            width: 300px;
+        }
+
+        #especialidad{
+            display: inline-block;
+            width: 215px;
+        }
+
+        #grupoT{
+            display: inline-block;
+            width: 205px;
+        }
+
+        #acciones{
+            display: inline-block;
+            width: 115px;
+        }
+
+        #primer-col{
+            margin-top: 32px;
+            margin-bottom: 15px;
+        }
+
         `;
 
         this.divContent.innerHTML = `
@@ -103,9 +136,25 @@ class DocentesTarjeta extends HTMLElement {
                 </button>
             </div>
 
+            <div id="primer-col">
+                <div id="espacio"> </div>
+                <div id="nombre">
+                    <span>NOMBRE</span>
+                </div>
+                <div id="especialidad">
+                    <span>ESPECIALIDAD</span>
+                </div>
+                <div id="grupoT">
+                    <span>GRUPO TUTORADO</span>
+                </div>
+                <div id="acciones"> 
+                    <span>ACCIONES</span> 
+                </div>
+            </div>
+
         </div>
         `;
     }
 }
 
-customElements.define("docentes-tarjetas", DocentesTarjeta);
+customElements.define("docentes-tarjeta", DocentesTarjeta);
