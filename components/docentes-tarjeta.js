@@ -138,7 +138,7 @@ class DocentesTarjeta extends HTMLElement {
             <div id="btn-complete">
                 <button class="boton">
                     <span>
-                        <img id="img" src="imagenes/Add User.png">
+                        <img id="img" src="imagenes/btnAgregar.png">
                     </span>
 
                     <span id="texto_btn">
@@ -171,9 +171,7 @@ class DocentesTarjeta extends HTMLElement {
                 especialidad="Arquitecto de Nube"
                 cedula="Cédula Profesional"
                 grupoTutorado="3 A"
-
             >
-
             </docentes-tarjetaindividual>
 
             <docentes-tarjetaindividual
@@ -183,9 +181,7 @@ class DocentesTarjeta extends HTMLElement {
                 especialidad="Inteligencia Artificial"
                 cedula="Cédula Profesional"
                 grupoTutorado="1 B"
-
             >
-
             </docentes-tarjetaindividual>
 
         </div>
@@ -214,12 +210,12 @@ class DocentesTarjetaIndividual extends HTMLElement {
 
         this.divStyle.innerHTML = `
         .contenedor{
-
         }
 
         #nombre{
             display: inline-block;
             width: 300px;
+            transform: translate(0, 5%);
         }
 
         #espacio{
@@ -232,6 +228,7 @@ class DocentesTarjetaIndividual extends HTMLElement {
 
         #imagen{
             display: inline-block;
+            padding-right: 10px;
         }
 
         #img{
@@ -247,6 +244,7 @@ class DocentesTarjetaIndividual extends HTMLElement {
 
         #texto{
             display: inline-block;
+            transform: translate(0, -20%);
         }
 
         .textoPrincipal{
@@ -272,11 +270,56 @@ class DocentesTarjetaIndividual extends HTMLElement {
         #grupoT{
             display: inline-block;
             width: 205px;
+            text-align: center;
+            transform: translate(0, -80%);
         }
 
         #acciones{
             display: inline-block;
             width: 115px;
+
+            text-align: center;
+            transform: translate(0, -50%);
+        }
+        
+        #btnModificar{
+            width: 30px;
+            height: 26px;
+
+            border: none;
+            background: #EDF9F0;
+            border-radius: 8px;
+
+            cursor: pointer;
+            
+        }
+
+        #btnVisualizar{
+            width: 30px;
+            height: 26px;
+            border: none;
+
+            background: #FFF4EC;
+            border-radius: 8px;
+
+            cursor: pointer;
+        }
+
+        #btnEliminar{
+            width: 30px;
+            height: 26px;
+            border: none;
+
+            background: #FEEFEF;
+            border-radius: 8px;
+            
+            cursor: pointer;
+        }
+
+
+
+        #btn-complete{
+            display: inline-block;                
         }
 
         `;
@@ -305,7 +348,7 @@ class DocentesTarjetaIndividual extends HTMLElement {
                     
                 </div>
 
-                <div id="especialidad">
+                <div id="especialidad" style="transform: translate(0, -15%);">
                         <div class="textoPrincipal">
                             ${this.getAttribute("especialidad")}
                         </div>
@@ -319,8 +362,24 @@ class DocentesTarjetaIndividual extends HTMLElement {
                 </div>
 
                 <div id="acciones"> 
+                    <div id="btn-complete">
+                        <button id="btnModificar">
+                            <img id="imgBtn" src="imagenes/btnModificar.svg">
+                        </button>
+
+                        <button id="btnVisualizar" >
+                            <img src="imagenes/btnVisualizar.svg">
+                        </button>
+
+                        <button id="btnEliminar">
+                            <img src="imagenes/btnEliminar.svg">
+                        </button>
+                    </div>
                     
                 </div>
+
+                
+
             </div>
         </div>
 
