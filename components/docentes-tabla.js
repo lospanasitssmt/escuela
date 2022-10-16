@@ -1,4 +1,4 @@
-class DocentesTarjeta extends HTMLElement {
+class DocentesTabla extends HTMLElement {
     constructor() {
         super();
 
@@ -69,6 +69,8 @@ class DocentesTarjeta extends HTMLElement {
 
         #btn-complete{
             display: inline-block;
+            padding: 30px 0 0 400px;
+            transform: translate(0, -30%);
         }
 
         #texto{
@@ -389,5 +391,5 @@ class DocentesTarjetaIndividual extends HTMLElement {
 }
 
 
-customElements.define("docentes-tarjeta", DocentesTarjeta);
+customElements.define("docentes-tabla", DocentesTabla);
 customElements.define("docentes-tarjetaindividual", DocentesTarjetaIndividual);
