@@ -4,14 +4,6 @@
     font-weight: normal;
 }
 
-<<<<<<< HEAD
-#tarjetas {
-    display: grid;
-    gap: 50px 50px;
-    grid-template-columns: auto auto auto;
-    padding: 10px;
-}
-=======
 @font-face {
     font-family: 'Poppins';
     src: url(../fonts/Poppins-Regular.ttf) format('truetype');
@@ -174,4 +166,63 @@ color: #222222;
     padding: 0px 20px 20px 20px;
 }
 
->>>>>>> 19976c8064c51d0097f9a028d2a5343607fb0475
+#gruposBotones{
+    border: 1px solid #111827;
+    filter: drop-shadow(0px 10px 15px rgba(17, 24, 39, 0.1));
+    border-radius: 10px;
+    float: left;
+    padding: 4px;
+}
+
+.gruposeleccionado{
+    background: #111827;
+    border: 1px solid #111827;
+    border-radius: 8px;
+
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    
+    color: #FFFFFF;
+
+    justify-content: center;
+    align-items: center;
+    padding: 8px 16px;
+    gap: 8px;
+
+
+    border: none;
+}
+
+
+.gruponoseleccionado{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    
+    color: #111827;
+    
+    justify-content: center;
+    align-items: center;
+    padding: 8px 16px;
+    gap: 8px;
+
+    border-radius: 8px;
+    border: none;
+}
+
+#bombon{
+    float: left;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin-bottom: 33px;
+}

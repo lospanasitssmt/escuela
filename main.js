@@ -6,6 +6,10 @@ const open = document.getElementById('btn_add_med');
 const modal_container = document.getElementById('modal_container');
 const close = document.getElementById('close');
 
+
+const grupos = document.getElementById('grupos');
+const grupospormateria = document.getElementById('grupospormateria');
+
 $('#search').keyup(function (e) {
     e.preventDefault();
     var search = $.trim($("#search").val());
@@ -54,6 +58,19 @@ function getMedicamentos(search) {
     });
 }
 
+grupos.addEventListener('click', ()=> {
+    grupos.classList.remove('gruponoseleccionado');
+    grupos.classList.add('gruposeleccionado');
+    grupospormateria.classList.remove('gruposeleccionado');
+    grupospormateria.classList.add('gruponoseleccionado');
+});
+
+grupospormateria.addEventListener('click', ()=> {
+    grupos.classList.remove('gruposeleccionado');
+    grupos.classList.add('gruponoseleccionado');
+    grupospormateria.classList.remove('gruponoseleccionado');
+    grupospormateria.classList.add('gruposeleccionado');
+});
 
 open.addEventListener('click', () => {
     let template = `
