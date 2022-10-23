@@ -15,7 +15,7 @@ class DocentesTabla extends HTMLElement {
 
     connectedCallback() {
 
-        let conjunto="";
+        let conjunto = "";
 
         this.divStyle.innerHTML = `
         .contenedor{            
