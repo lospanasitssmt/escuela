@@ -15,6 +15,7 @@ class DocentesTabla extends HTMLElement {
 
     connectedCallback() {
 
+        let conjunto = "";
 
         this.divStyle.innerHTML = `
         .contenedor{            
@@ -121,7 +122,25 @@ class DocentesTabla extends HTMLElement {
 
         `;
 
-        this.divContent.innerHTML = `
+        fetch('bd/mostrar-empleados.php')
+            .then(respuesta=> respuesta.json())
+            .then(json => json.forEach(docente => {
+                conjunto+=`
+                    <docentes-tarjetaindividual
+                            imagen="imagenes/perfil.jpg"
+                            nombre="${docente.NOMBRE} ${docente.APELLIDO_PATERNO} ${docente.APELLIDO_MATERNO}"
+                            gradoEstudio="${docente.ULTIMO_GRADO_ESTUDIOS}"
+                            especialidad="${docente.ESPECIALIDAD}"
+                            cedula="${docente.CEDULA_PROFESIONAL}"
+                            grupoTutorado="${docente.GRADO}"
+                        >
+                        </docentes-tarjetaindividual>
+
+                    `;
+            })
+        )
+        .then(dato => {
+            this.divContent.innerHTML = `
         <div class="contenedor">
             <div id="texto">
                 <div class="titulo">
@@ -166,28 +185,50 @@ class DocentesTabla extends HTMLElement {
                 </div>
             </div>
 
-            <docentes-tarjetaindividual
-                imagen="imagenes/perfil.jpg"
-                nombre="Alberto Juárez Varela"
-                gradoEstudio="Grado de estudio"
-                especialidad="Arquitecto de Nube"
-                cedula="Cédula Profesional"
-                grupoTutorado="3 A"
-            >
-            </docentes-tarjetaindividual>
-
-            <docentes-tarjetaindividual
-                imagen="imagenes/perfil.jpg"
-                nombre="Laura González Lara"
-                gradoEstudio="Grado de estudio"
-                especialidad="Inteligencia Artificial"
-                cedula="Cédula Profesional"
-                grupoTutorado="1 B"
-            >
-            </docentes-tarjetaindividual>
+            <div id="tarjeta">
+                ${conjunto}
+            </div>
 
         </div>
         `;
+        
+        });
+
+        
+
+        /*
+        this.tar = this.shadowRoot.querySelector("#tarjeta");
+        $.ajax({
+            url: "bd/mostrar-empleados.php",
+            type: "POST",
+            datatype: "JSON",
+            success: function(data){
+                if(data=='"null"'){
+                    console.log("No hay registros");
+                } else{
+                    let conjunto = "";
+                    let docentes = JSON.parse(data);
+                    docentes.forEach(docente => {
+                        conjunto+=`
+                        <docentes-tarjetaindividual
+                            imagen="imagenes/perfil.jpg"
+                            nombre="${docente.NOMBRE} ${docente.APELLIDO_PATERNO} ${docente.APELLIDO_MATERNO}"
+                            gradoEstudio="${docente.ULTIMO_GRADO_ESTUDIOS}"
+                            especialidad="${docente.ESPECIALIDAD}"
+                            cedula="${docente.CEDULA_PROFESIONAL}"
+                            grupoTutorado="${docente.GRADO}"
+                        >
+                        </docentes-tarjetaindividual>
+
+                        `;
+                    });
+                    alert(conjunto);
+                   
+                }
+            }
+        });
+        this.tar.innerHTML("texto");*/
+
     }
 }
 
