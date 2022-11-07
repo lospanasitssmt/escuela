@@ -96,6 +96,7 @@ class GruposTabla extends HTMLElement {
             mix-blend-mode: normal;
             opacity: 0.4;
             
+            transform: translate(30px, 0px);
         }
 
         #tutor{
@@ -122,8 +123,26 @@ class GruposTabla extends HTMLElement {
         }
         `;
 
-        this.divContent.innerHTML = `
-        <div>
+        let va1="";
+
+        fetch('bd/grupostabla-general.php')
+        .then(response => response.json())
+        .then(json => json.forEach(element => {
+            va1 = va1 +
+                `
+            <grupos-tablaindividual 
+                datoid="${element.ID}" 
+                clav="${element.CLAVE}" 
+                describe="${element.DESCRIPCION}" 
+                grad="${element.GRADO}" 
+                tuto="${element.NOMBRE} ${element.APELLIDO_PATERNO} ${element.APELLIDO_MATERNO}">
+            </grupos-tablaindividual>
+        `;
+
+        }))
+        .then(tarjeta => {
+            this.divContent.innerHTML = `
+            <div>
             <div id="globalelement">
                 <div id="vacio"></div>
                 <div id="id">ID</div>
@@ -133,14 +152,9 @@ class GruposTabla extends HTMLElement {
                 <div id="tutor">Tutor</div>
             </div>
 
-            <grupos-tablaindividual datoid="4" clav="3DER567" describe="lsijgnj" grad="3° 'A'" tuto="L.C.C Anabel Savedra Cortez">  </grupos-tablaindividual>
-            <grupos-tablaindividual datoid="6" clav="3DJU567" describe="lsijgnj" grad="6° 'B'" tuto="L.C.C Miriam Savra Cotez"></grupos-tablaindividual>
-            <grupos-tablaindividual datoid="7" clav="6DER567" describe="lsijgnj" grad="5° 'C'" tuto="L.C.C Anabel Savedra Cortez"></grupos-tablaindividual>
-            <grupos-tablaindividual datoid="8" clav="7DER567" describe="lsijgnj" grad="3° 'D'" tuto="L.C.C Raul Savedra Cortez"></grupos-tablaindividual>
-            <grupos-tablaindividual datoid="9" clav="9DER567" describe="lsijgnj" grad="7° 'A'" tuto="L.C.C Anabel Cata Cortez"></grupos-tablaindividual>
-
-           
+            ${va1}
         `;
+        });
     }
 }
 
@@ -178,6 +192,8 @@ class GruposTablaindividual extends HTMLElement {
         #clave{
             width:186px;
             display: inline-block;
+
+            transform: translate(0px, -10px);
         }
 
         #descripcion{
@@ -188,11 +204,16 @@ class GruposTablaindividual extends HTMLElement {
         #grado{
             width:129px;
             display: inline-block;
+
+            transform: translate(50px, -10px);
+            
         }
 
         #tutor{
             width:234.5px;
             display: inline-block;
+
+            transform: translate(0px, -10px);
         }
 
         #globalelement{

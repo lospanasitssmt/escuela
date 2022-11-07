@@ -3,20 +3,17 @@ include_once('conexion.php');
 $objeto= new Conexion();
 $conexion=$objeto->Conectar();
 
+$grupo=$_GET['idgrupo'];
+
 $consulta="SELECT 
-                a.ID, a.MATRICULA, a.USUARIO_ID, a.GRUPO_ID 
+                a.ID, a.MATRICULA, a.USUARIO_ID, a.GRUPO_ID, u.NOMBRE, u.APELLIDO_PATERNO, u.APELLIDO_MATERNO 
                 FROM alumnos a
                 INNER JOIN usuarios u ON a.USUARIO_ID=u.ID /*USUARIO_ID */
                 INNER JOIN grupos g ON a.GRUPO_ID=g.ID /* GRUPO_ID*/
+                
                 WHERE 
-                a.MATRICULA LIKE '%$search%' OR 
-
-                g.CLAVE LIKE '%$search%' OR
-                g.GRADO LIKE '%$search%' OR
-
-                u.NOMBRE LIKE '%$search%' OR
-                u.APELLIDO_PATERNO LIKE '%$search%' OR
-                u.APELLIDO_MATERNO LIKE '%$search%'
+                g.ID=$grupo
+                 
                 ;";
 
 

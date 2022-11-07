@@ -3,18 +3,18 @@ include_once('conexion.php');
 $objeto= new Conexion();
 $conexion=$objeto->Conectar();
 
-$ID=$_POST['ID'];
+$consulta="SELECT 
+                g.ID, g.CLAVE, g.DESCRIPCION, g.GRADO, g.TUTOR_ID,  
+                    (SELECT COUNT(*) FROM alumnos  al WHERE  al.GRUPO_ID= g.ID) as NOALUMNOS
+                FROM grupos g
 
-$consulta="UPDATE alumnos SET GRUPO_ID = NULL WHERE GRUPO_ID='$ID'";
-$resultado=$conexion->prepare($consulta);
-$resultado->execute();
+                ;";
 
-$consulta="DELETE FROM grupos WHERE ID = '$ID'";
+
 $resultado=$conexion->prepare($consulta);
 $resultado->execute();
 if($resultado->rowCount()>=1){
 	$data=$resultado->fetchAll(PDO::FETCH_ASSOC);
-	$data="Eliminado exitosamente";
 }else{
 	$data="null";
 }
