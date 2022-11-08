@@ -10,7 +10,7 @@
     <script src="https://kit.fontawesome.com/fa963c3f73.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="jquery/jquery-3.6.0.min.js"></script>
     
-    <script type="text/javascript" src="components/docentes-tarjeta.js"></script>
+    <script type="text/javascript" src="components/docentes-tabla.js"></script>
 
     <script src='components/usuario-tarjeta.js'></script>
 
@@ -108,25 +108,13 @@
 
     <!--Cuerpo-->
     <div id="main">
-<<<<<<< HEAD
-
-            <usuarios-tarjetas
-            categoria="Ingenieria de Software"
-            nombre="M.S.C Alberto Juárez Varela"
-            desc="Arquitecto en la Nube">
-                
-            </usuarios-tarjetas>
-
-        <docentes-tarjeta
-=======
         <docentes-tabla
->>>>>>> 744c6683ee1a3236ef84b3f15066b8c856efa1a4
             titulo="Ingeniería en Sistemas Computacionales"
             subtitulo="Docentes adscritos"
         >
 
-        </docentes-tarjeta>
         </docentes-tabla>
+>>>>>>> 744c6683ee1a3236ef84b3f15066b8c856efa1a4
     </div>
     <!--Termina cuerpo-->
 
